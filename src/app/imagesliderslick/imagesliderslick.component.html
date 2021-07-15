@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Image slider Component
+    </div>
+
+    <div class="card-body">
+      <div class="slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+        <div><h3>5</h3></div>
+        <div><h3>6</h3></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(element).slick({
+    dots: true,
+    speed: 500
+  });
+  $('.slider').slick({
+    // normal options...
+    infinite: false,
+
+    // the magic
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 300,
+        settings: 'unslick' // destroys slick
+      }
+    ]
+  });
+</script>
